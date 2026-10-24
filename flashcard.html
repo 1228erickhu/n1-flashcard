@@ -70,6 +70,9 @@
     <div class="card">
         <h1 id="word">スタート</h1>
         <p id="meaning"></p>
+        <input id ="answer" type="text" placeholder="輸入羅馬拼音">
+        <button id="check-btn" class="btn">確認</button>
+        <p id="result"></p>
         <button id="next-btn" class="btn">下一個</button>
         <button id="show-btn" class="btn">看讀音</button>
     </div>
@@ -106,11 +109,24 @@
             current = Math.floor(Math.random() * words.length);
             wordText.textContent = words[current];
             meaningText.textContent = "";
+            answerInput.value= "";
+            resultText.textContent= "";
         });
 
         document.getElementById("show-btn").addEventListener("click", function () {
             meaningText.textContent = meanings[current]
         });
+        const answerInput = document.getElementById("answer");
+        const resultText = document.getElementById("result");
+        document.getElementById("check-btn").addEventListener("click", function(){
+            const userAnswer = answerInput.value.trim().toLowerCase();
+
+            if (userAnswer === meanings[current]){
+                resultText.textContent="正確！" ;
+            } else {
+                resultText.textContent="答案是" + meanings[current];
+            }
+        }) ;
     </script>
 </body>
 
