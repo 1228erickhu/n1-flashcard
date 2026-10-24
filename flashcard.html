@@ -65,14 +65,36 @@
 </head>
 <body>
     <div class ="card">
-    <h1 id="word">按下按鈕開始</h1>
+    <h1 id="word">スタート</h1>
     <p id="meaning"></p>
     <button id="next-btn" class="btn">下一個</button>
-    <button id="show-btn" class="btn">看意思</button>
+    <button id="show-btn" class="btn">看讀音</button>
     </div>
     <script>
-        const words = ["曖昧", "懸念", "顯著", "措置", "妥協", "理由", "原因", "藉口"];
-        const meanings = ["含糊不清", "擔憂 掛念", "顯著 明顯", "措施 處置", "妥協 讓步", "理由的意思" ,"原因的意思" ,"藉口的意思"] ;
+        const words = [
+  "あ", "い", "う", "え", "お",
+  "か", "き", "く", "け", "こ",
+  "さ", "し", "す", "せ", "そ",
+  "た", "ち", "つ", "て", "と",
+  "な", "に", "ぬ", "ね", "の",
+  "は", "ひ", "ふ", "へ", "ほ",
+  "ま", "み", "む", "め", "も",
+  "や", "ゆ", "よ",
+  "ら", "り", "る", "れ", "ろ",
+  "わ", "を", "ん"
+];
+        const meanings = [
+  "a", "i", "u", "e", "o",
+  "ka", "ki", "ku", "ke", "ko",
+  "sa", "shi", "su", "se", "so",
+  "ta", "chi", "tsu", "te", "to",
+  "na", "ni", "nu", "ne", "no",
+  "ha", "hi", "fu", "he", "ho",
+  "ma", "mi", "mu", "me", "mo",
+  "ya", "yu", "yo",
+  "ra", "ri", "ru", "re", "ro",
+  "wa", "wo", "n"
+];
         const wordText = document.getElementById("word");
         const meaningText = document.getElementById("meaning");
         let current = 0;
