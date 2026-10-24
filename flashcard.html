@@ -103,31 +103,34 @@
         ];
         const wordText = document.getElementById("word");
         const meaningText = document.getElementById("meaning");
+        const answerInput=document.getElementById("answer") ;
+        const resultText=document.getElementById("result") ;
+        
         let current = 0;
 
-        document.getElementById("next-btn").addEventListener("click", function () {
+        function nextWord() {
             current = Math.floor(Math.random() * words.length);
             wordText.textContent = words[current];
             meaningText.textContent = "";
             answerInput.value= "";
             resultText.textContent= "";
-        });
+        }
 
+        document.getElementById("next-btn").addEventListener("click", nextWord);
         document.getElementById("show-btn").addEventListener("click", function () {
-            meaningText.textContent = meanings[current]
+            meaningText.textContent = meanings[current] ;
         });
-        const answerInput = document.getElementById("answer");
-        const resultText = document.getElementById("result");
+       
         document.getElementById("check-btn").addEventListener("click", function(){
             const userAnswer = answerInput.value.trim().toLowerCase();
 
             if (userAnswer === meanings[current]){
-                resultText.textContent="正確！" ;
+                resultText.textContent="⭕️正確！" ;
             } else {
-                resultText.textContent="答案是" + meanings[current];
+                resultText.textContent="❌答案是" + meanings[current];
             }
         }) ;
+        nextWord() ;
     </script>
 </body>
-
 </html>
