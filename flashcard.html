@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>N1 單字卡</title>
+<style>
+
+        body {
+            background-color: #f5f0e8;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            color: #c0392b;
+        }
+
+        h2 {
+            color: #352bc0;
+        }
+
+        img {
+            border-radius: 50%;
+        }
+
+        .intro {
+            font-size: 28px;
+        }
+
+        .card {
+            background-color: white;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 32px;
+            border-radius: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #c0392b;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: inherit;
+            border: none;
+
+        }
+
+        .btn:hover {
+            background-color: #352bc0;
+            transform: scale(1.1);
+        }
+    .card{
+        text-align: center;
+    }
+    #word{
+        font-size: 64px;
+        color: #c0392b;
+    }
+
+</style>
+</head>
+<body>
+    <div class ="card">
+    <h1 id="word">按下按鈕開始</h1>
+    <p id="meaning"></p>
+    <button id="next-btn" class="btn">下一個</button>
+    <button id="show-btn" class="btn">看意思</button>
+    </div>
+    <script>
+        const words = ["曖昧", "懸念", "顯著", "措置", "妥協", "理由", "原因", "藉口"];
+        const meanings = ["含糊不清", "擔憂 掛念", "顯著 明顯", "措施 處置", "妥協 讓步", "理由的意思" ,"原因的意思" ,"藉口的意思"] ;
+        const wordText = document.getElementById("word");
+        const meaningText = document.getElementById("meaning");
+        let current = 0;
+
+        document.getElementById("next-btn").addEventListener("click", function () {
+            current = Math.floor(Math.random() * words.length);
+            wordText.textContent = words[current];
+            meaningText.textContent = "";
+        }) ;
+
+        document.getElementById("show-btn").addEventListener("click", function () {
+            meaningText.textContent = meanings[current]
+        }) ;
+        </script>
+</body>
+</html>
