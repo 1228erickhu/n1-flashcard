@@ -136,9 +136,13 @@
         });
        let score = 0;
        let total = 0;
+       let answered= false ;
         document.getElementById("check-btn").addEventListener("click", function(){
             const userAnswer = answerInput.value.trim().toLowerCase();
             total = total +1 ;
+            if (answered){
+                return;
+            }
             if (userAnswer === meanings[current]){
                 resultText.textContent="⭕️正確！" ;
                 score= score+1 ;
