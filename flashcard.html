@@ -33,12 +33,18 @@
             margin: 40px auto;
             padding: 32px;
             border-radius: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 12px;
         }
         input{
             font-size: 16px;
             padding: 10px;
             border-radius: 8px;
             border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 12px;
         }
         .btn {
             display: inline-block;
@@ -78,6 +84,7 @@
         <input id ="answer" type="text" placeholder="輸入羅馬拼音">
         <button id="check-btn" class="btn">確認</button>
         <p id="result"></p>
+        <p>答對<span id="score">0</span>題 / 共<span id="total">0</span>題</p>
         <button id="next-btn" class="btn">下一個</button>
         <button id="show-btn" class="btn">看讀音</button>
     </div>
@@ -110,6 +117,8 @@
         const meaningText = document.getElementById("meaning");
         const answerInput=document.getElementById("answer") ;
         const resultText=document.getElementById("result") ;
+        const scoreText=document.getElementById("score") ;
+        const totalText=document.getElementById("total") ;
         
         let current = 0;
 
@@ -125,15 +134,19 @@
         document.getElementById("show-btn").addEventListener("click", function () {
             meaningText.textContent = meanings[current] ;
         });
-       
+       let score = 0;
+       let total = 0;
         document.getElementById("check-btn").addEventListener("click", function(){
             const userAnswer = answerInput.value.trim().toLowerCase();
-
+            total = total +1 ;
             if (userAnswer === meanings[current]){
                 resultText.textContent="⭕️正確！" ;
+                score= score+1 ;
             } else {
                 resultText.textContent="❌答案是" + meanings[current];
             }
+            scoreText.textContent= score ;
+            totalText.textContent= total ;
         }) ;
         nextWord() ;
     </script>
