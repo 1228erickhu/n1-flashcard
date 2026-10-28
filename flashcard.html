@@ -128,6 +128,7 @@
             meaningText.textContent = "";
             answerInput.value= "";
             resultText.textContent= "";
+            answered = false ;
         }
 
         document.getElementById("next-btn").addEventListener("click", nextWord);
@@ -138,11 +139,12 @@
        let total = 0;
        let answered= false ;
         document.getElementById("check-btn").addEventListener("click", function(){
-            const userAnswer = answerInput.value.trim().toLowerCase();
-            total = total +1 ;
-            if (answered){
+             if (!answered){
                 return;
             }
+            const userAnswer = answerInput.value.trim().toLowerCase();
+            total = total +1 ;
+           
             if (userAnswer === meanings[current]){
                 resultText.textContent="⭕️正確！" ;
                 score= score+1 ;
@@ -151,6 +153,7 @@
             }
             scoreText.textContent= score ;
             totalText.textContent= total ;
+            answered = true ;
         }) ;
         nextWord() ;
     </script>
